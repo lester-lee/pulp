@@ -1,0 +1,23 @@
+{
+  "name": "pulp",
+  "version": "0.1.0",
+  "description": "online multimedia platform",
+  "main": "keystone.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lester-lee/pulp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lester-lee/pulp/issues"
+  },
+  "homepage": "https://github.com/lester-lee/pulp#readme",
+  "dependencies": {
+    "express-handlebars": "^3.0.2",
+    "keystone": "^4.0.0"
+  }
+}
