@@ -8,8 +8,7 @@ User.add({
   isAdmin: {type: Boolean, label: 'Can access Keystone'},
 });
 
-User.schema.virtual('canAccessKeystone').get(function(){
-  //return this.isAdmin;
+User.schema.virtual('canAccessKeystone').get(()=>{
   return true;
 });
 
