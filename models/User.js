@@ -8,9 +8,9 @@ User.add({
   isAdmin: {type: Boolean, label: 'Can access Keystone'},
 });
 
-User.schema.virtual('canAccessKeystone').get(()=>{
-  return true;
-});
+User.schema.virtual('canAccessKeystone').get(
+  () => this.isAdmin
+);
 
 User.defaultColumns = 'displayName, email, isAdmin';
 User.register();
