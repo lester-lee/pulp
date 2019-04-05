@@ -5,6 +5,7 @@ keystone.init({
 	'cookie secret': 'secure string goes here',
 	'name': 'pulp',
 	'user model': 'User',
+	'static': 'public',
 	'auto update': true,
 	'auth': true,
 	'views': 'views',
