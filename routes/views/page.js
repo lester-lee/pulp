@@ -17,6 +17,7 @@ exports = module.exports = function (req, res){
     });
     q.exec(function (err, result){
       locals.page = result;
+      locals.title = result ? result.title : "404"; // TODO: fix
       next(err);
     });
   });
