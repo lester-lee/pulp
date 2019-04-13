@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 var Page = keystone.list('Page');
 
-exports = module.exports = function (req, res){
+exports = module.exports = function (req, res) {
   let view = new keystone.View(req, res);
 
   // Init locals
@@ -10,17 +10,18 @@ exports = module.exports = function (req, res){
     page: req.params.page,
   };
 
-  // Load page
-  view.on('init', function(next){
-    var q = Page.model.findOne({
-      url: locals.filters.page,
-    });
-    q.exec(function (err, result){
-      locals.page = result;
-      locals.title = result ? result.title : "404"; // TODO: fix
-      next(err);
-    });
+  // Find page
+  let q = Page.model.findOne({
+    url: locals.filters.page,
   });
-
-  view.render('page');
+  q.exec(function (err, result) {
+    if (!result) {
+      res.status(404);
+      view.render('error404');
+    } else {
+      locals.page = result;
+      locals.title = result.title;
+      view.render('page');
+    }
+  });
 };

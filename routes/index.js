@@ -11,6 +11,7 @@ var routes = {
 
 exports = module.exports = function(app){
   app.get('/', routes.views.index);
-  app.get('/info/:page', routes.views.page);
+  app.get('/404', routes.views.error);
+  app.get('/:page', routes.views.page);
   app.get('*', routes.views.error);
 };
